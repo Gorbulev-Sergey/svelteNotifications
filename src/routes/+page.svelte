@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { addToast } from '#lib/scripts/storeToasts.svelte.ts';
-	import Column from './../lib/components/Column.svelte';
+	import Column from '#lib/components/Column.svelte';
 	let photos = $state([
 		'https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/fdxdTRYsVwvVxCgEbUDtc-miqcvwzEVl/qhFrPxvsDQzBbf57BZ5N9xraeRaH9Urm/eH-MqZgC1fy4sZduosL_bQ.jpg',
 		'https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/VwtA-FfEADI0vERLvfmj3mD936Svx7Ju/wV_6PA87X4MuICEuqLv6o9ZvhMgEDCHX/xQnx8-oSK8xQblXMxDhmQQ.jpg',
@@ -15,20 +15,16 @@
 
 <Column>
 	<div>
-		<h1>Welcome to SvelteKit</h1>
-
-		<div>
-			Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
-		</div>
+		<h2>Фотографии</h2>
 	</div>
 
-	<div class="row xl:row-cols-4 row-cols-1 g-4">
+	<div class="row xl:row-cols-5 row-cols-1 g-4">
 		{#each photos as photo}
 			<div class="col h-100">
 				<div class="position-relative">
 					<img
 						class="img-fluid object-fit-cover w-100 rounded-3 hover-lift"
-						style="height: 14em;"
+						style="height: 11em;"
 						src={photo}
 						alt=""
 						loading="lazy"

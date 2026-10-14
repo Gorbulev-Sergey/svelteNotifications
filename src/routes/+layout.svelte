@@ -23,9 +23,12 @@
 
 <div class="sticky-top w-100 bg-1">
 	<div class="d-flex align-items-center p-3">
-		<div class="flex-grow-1 d-flex align-self-center justify-content-end">
-			<div class="d-flex align-items-center gap-2">
-				<div class="d-flex gap-2 align-items-center">
+		<div class="d-flex align-self-center w-100">
+			<a class="btn btn-sm bg-1 rounded-3" href="/"
+				>Svelte <b class="text-uppercase">Notifications</b></a
+			>
+			<div class="flex-grow-1 d-flex align-items-center justify-content-end gap-2">
+				<div class="d-flex gap-2 justify-content-end align-items-center">
 					<button
 						class="btn btn-sm rounded-3"
 						onclick={() => {
@@ -56,11 +59,11 @@
 		</div>
 	</div>
 </div>
-<div class="container my-4" style="">
+<div class="container my-4">
 	{@render children()}
 </div>
 
-<Toaster />
+<Toaster position={5} />
 
 <style>
 	/* Настройка цветов фона для светлой и темной темы */
