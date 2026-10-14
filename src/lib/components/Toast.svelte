@@ -9,7 +9,7 @@
 	let { toast, onClose }: IProps = $props();
 </script>
 
-<div class="bg-1 rounded-3" style="min-width: 21em;" transition:fade>
+<div class="bg-1 rounded-3" style="min-width: 21em; max-width: 40vw;" transition:fade>
 	<div class="{toast._class} d-flex flex-column gap-1 p-3 rounded-3">
 		<section class="d-flex align-items-center gap-2">
 			<div class="flex-grow-1 d-flex align-items-center ps-1 gap-2">
