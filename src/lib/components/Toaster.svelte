@@ -4,8 +4,8 @@
 </script>
 
 <div
-	class="position-absolute d-flex flex-column-reverse gap-3 bottom-0 start-0 end-0 p-5"
-	style="z-index: 3000;"
+	class="position-absolute d-flex flex-column-reverse gap-3 bottom-0 start-50 p-5"
+	style="z-index: 3000; transform: translateX(-50%);"
 >
 	{#each storeToasts.toasts as toast, i}
 		<div class="d-flex justify-content-center">
