@@ -30,7 +30,8 @@
 						onclick={() =>
 							addToast({
 								title: 'Всем привет!',
-								content: 'Новое уведомлениею. Новое уведомлениею.'
+								content: 'Новое уведомлениею. Новое уведомлениею.',
+								_class: 'bg-info'
 							})}>Тост</button
 					>
 					<button class="btn btn-sm bg-2 rounded-2" onclick={toggleTheme}>Тема</button>
