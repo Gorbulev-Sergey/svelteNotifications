@@ -6,7 +6,6 @@
 	import Toaster from '#lib/components/Toaster.svelte';
 
 	let { children } = $props();
-
 	function toggleTheme() {
 		let theme = document.querySelector('[data-bs-theme]');
 		theme?.setAttribute(
@@ -59,7 +58,7 @@
 		</div>
 	</div>
 </div>
-<div class="container my-4">
+<div class="container my-5">
 	{@render children()}
 </div>
 

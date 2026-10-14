@@ -14,9 +14,7 @@
 </script>
 
 <Column>
-	<div>
-		<h2>Фотографии</h2>
-	</div>
+	<h2>Фотографии</h2>
 
 	<div class="row xl:row-cols-5 row-cols-1 g-4">
 		{#each photos as photo}
@@ -30,7 +28,7 @@
 						loading="lazy"
 					/>
 					<button
-						class="btn-icon btn-sm bg-1 bg-20 position-absolute z-3"
+						class="btn-icon btn-sm bg-1 bg-20 rounded-3 position-absolute z-3"
 						style="top:.2em; right:.2em"
 						title="Удалить"
 						onclick={() => {
