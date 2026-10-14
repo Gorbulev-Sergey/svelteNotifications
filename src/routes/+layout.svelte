@@ -2,13 +2,8 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
-	import { toast, Toaster } from 'svelte-sonner';
-	// import Toast from '#lib/components/Toast.svelte';
-	import Toasts from '#lib/components/Toasts.svelte';
-	import { addToast } from '#lib/scripts/toastStore.ts';
-	import Toast1 from '#lib/components/Toast1.svelte';
-	import MyToasts from '#lib/components/MyToasts.svelte';
-	import { Toast, toastsStore } from '#lib/scripts/myToastsStore.svelte.ts';
+	import { addToast, Toast } from '#lib/scripts/storeToasts.svelte.ts';
+	import Toaster from '#lib/components/Toaster.svelte';
 
 	let { children } = $props();
 
@@ -33,20 +28,10 @@
 					<button
 						class="btn-sm btn-solid theme-success rounded-2"
 						onclick={() =>
-							toastsStore.toasts.push(
-								Toast('Всем привет!', 'Новое уведомлениею. Новое уведомлениею.')
-							)}>Мой тост</button
-					>
-					<button
-						class="btn-sm btn-solid theme-success rounded-2"
-						onclick={() =>
-							toast.success('Вы нажали на зелёную кнопку кнопку!', {
-								class: 'bg-danger'
-							})}>Toast</button
-					>
-					<button
-						class=" btn-sm theme-primary btn-solid rounded-2"
-						onclick={() => toast.custom(Toast1)}>Toast</button
+							addToast({
+								title: 'Всем привет!',
+								content: 'Новое уведомлениею. Новое уведомлениею.'
+							})}>Тост</button
 					>
 					<button class="btn btn-sm bg-2 rounded-2" onclick={toggleTheme}>Тема</button>
 				</div>
@@ -72,8 +57,7 @@
 	{@render children()}
 </div>
 
-<Toaster expand={true} richColors theme="light" />
-<MyToasts />
+<Toaster />
 
 <style>
 	/* Настройка цветов фона для светлой и темной темы */
