@@ -2,7 +2,7 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
-	import { addToast, Toast } from '#lib/scripts/storeToasts.svelte.ts';
+	import { addToast, STORE, Toast } from '#lib/scripts/storeToasts.svelte.ts';
 	import Toaster from '#lib/components/Toaster.svelte';
 
 	let { children } = $props();
@@ -14,6 +14,8 @@
 			theme.getAttribute('data-bs-theme') == 'light' ? 'dark' : 'light'
 		);
 	}
+
+	let val = $state(1);
 </script>
 
 <svelte:head>
@@ -27,12 +29,14 @@
 				<div class="d-flex gap-2 align-items-center">
 					<button
 						class="btn-sm btn-solid theme-success rounded-2"
-						onclick={() =>
+						onclick={() => {
 							addToast({
 								title: 'Всем привет!',
-								content: 'Новое уведомлениею. Новое уведомлениею.',
-								_class: 'bg-info'
-							})}>Тост</button
+								content:
+									'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum atque at nostrum facilis, eos voluptas necessitatibus suscipit magni laborum consectetur, sapiente amet ullam pariatur magnam saepe error minima quo natus!'
+							});
+							val += 1;
+						}}>Тост</button
 					>
 					<button class="btn btn-sm bg-2 rounded-2" onclick={toggleTheme}>Тема</button>
 				</div>

@@ -1,4 +1,4 @@
-let INTERVAL = 20000;
+let INTERVAL = 4000;
 
 export interface IToast {
 	id?: string;
@@ -23,30 +23,27 @@ export function Toast(
 	};
 }
 
-export let storeToasts = $state<{ toasts: IToast[] }>({ toasts: [] });
-
 let timers = new Map();
+export let STORE = $state<{ toasts: IToast[] }>({ toasts: [] });
 
 export function addToast(toast: IToast) {
-	toast.id ??= crypto.randomUUID();
-	toast.timeout ??= INTERVAL;
+	toast.id ||= crypto.randomUUID();
+	toast.timeout ||= INTERVAL;
+	STORE.toasts.push(toast);
 
 	if (toast.timeout) {
-		storeToasts.toasts.push(toast);
 		timers.set(
 			toast.id,
-			setInterval(async () => dismissToast(toast?.id), toast.timeout)
+			setInterval(async () => deleteToast(toast?.id), toast.timeout)
 		);
 	}
 }
 
-export function dismissToast(id?: string) {
+export function deleteToast(id?: string) {
 	const timer = timers.get(id);
 	if (timer) {
-		clearInterval(timer);
+		STORE.toasts = [...STORE.toasts.filter((t) => t.id !== id)];
 		timers.delete(id);
-
-		let toastIndex = storeToasts.toasts.findIndex((t) => t.id === id);
-		storeToasts.toasts.splice(toastIndex, 1);
+		clearInterval(timer);
 	}
 }
