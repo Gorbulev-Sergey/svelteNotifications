@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { addToast } from '#lib/scripts/storeToasts.svelte.ts';
 	import Column from './../lib/components/Column.svelte';
 	let photos = $state([
 		'https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/fdxdTRYsVwvVxCgEbUDtc-miqcvwzEVl/qhFrPxvsDQzBbf57BZ5N9xraeRaH9Urm/eH-MqZgC1fy4sZduosL_bQ.jpg',
@@ -24,13 +25,29 @@
 	<div class="row xl:row-cols-4 row-cols-1 g-4">
 		{#each photos as photo}
 			<div class="col h-100">
-				<img
-					class="img-fluid object-fit-cover w-100 rounded-3 hover-lift"
-					style="height: 14em;"
-					src={photo}
-					alt=""
-					loading="lazy"
-				/>
+				<div class="position-relative">
+					<img
+						class="img-fluid object-fit-cover w-100 rounded-3 hover-lift"
+						style="height: 14em;"
+						src={photo}
+						alt=""
+						loading="lazy"
+					/>
+					<button
+						class="btn-icon btn-sm bg-1 bg-20 position-absolute z-3"
+						style="top:.2em; right:.2em"
+						title="Удалить"
+						onclick={() => {
+							photos = [...photos.filter((ph) => ph !== photo)];
+							addToast({
+								title: 'Фотография удалена',
+								content: `<img class="img-fluid object-fit-cover w-100 rounded-3" style="height: 10em;" src='${photo}'/>`
+							});
+						}}
+					>
+						<i class="bi bi-x-lg"></i>
+					</button>
+				</div>
 			</div>
 		{/each}
 	</div>

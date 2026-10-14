@@ -2,7 +2,7 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
-	import { addToast, STORE, Toast } from '#lib/scripts/storeToasts.svelte.ts';
+	import { addToast } from '#lib/scripts/storeToasts.svelte.ts';
 	import Toaster from '#lib/components/Toaster.svelte';
 
 	let { children } = $props();
@@ -14,8 +14,6 @@
 			theme.getAttribute('data-bs-theme') == 'light' ? 'dark' : 'light'
 		);
 	}
-
-	let val = $state(1);
 </script>
 
 <svelte:head>
@@ -35,7 +33,6 @@
 								content:
 									'Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum atque at nostrum facilis, eos voluptas necessitatibus suscipit magni laborum consectetur, sapiente amet ullam pariatur magnam saepe error minima quo natus!'
 							});
-							val += 1;
 						}}>Тост</button
 					>
 					<button class="btn btn-sm bg-2 rounded-2" onclick={toggleTheme}>Тема</button>

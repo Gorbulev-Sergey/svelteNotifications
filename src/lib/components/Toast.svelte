@@ -4,16 +4,15 @@
 
 	interface IProps {
 		toast: IToast;
-		toasts: IToast[];
 		onClose(id?: string): void;
 	}
-	let { toast, toasts, onClose }: IProps = $props();
+	let { toast, onClose }: IProps = $props();
 </script>
 
-<div class="bg-1 rounded-3" transition:fade>
-	<div class="{toast._class} p-3 rounded-3" style="min-width: 20em;">
-		<section class="d-flex align-self-center gap-2">
-			<div class="flex-grow-1 d-flex align-self-center ps-1 gap-2">
+<div class="bg-1 rounded-3" style="min-width: 21em;" transition:fade>
+	<div class="{toast._class} d-flex flex-column gap-1 p-3 rounded-3">
+		<section class="d-flex align-items-center gap-2">
+			<div class="flex-grow-1 d-flex align-items-center ps-1 gap-2">
 				<b class="text-uppercase">{toast.title}</b>
 			</div>
 			<button
@@ -24,7 +23,6 @@
 				<i class="bi bi-x-lg"></i>
 			</button>
 		</section>
-
 		<div class="px-1">
 			{@html toast.content}
 		</div>
