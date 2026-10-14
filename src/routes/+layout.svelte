@@ -13,6 +13,7 @@
 			'data-bs-theme',
 			theme.getAttribute('data-bs-theme') == 'light' ? 'dark' : 'light'
 		);
+		cookieStore.set('theme', theme?.getAttribute('data-bs-theme') || 'light');
 	}
 </script>
 
@@ -26,7 +27,7 @@
 			<div class="d-flex align-items-center gap-2">
 				<div class="d-flex gap-2 align-items-center">
 					<button
-						class="btn-sm btn-solid theme-success rounded-2"
+						class="btn btn-sm rounded-3"
 						onclick={() => {
 							addToast({
 								title: 'Всем привет!',
@@ -35,10 +36,10 @@
 							});
 						}}>Тост</button
 					>
-					<button class="btn btn-sm bg-2 rounded-2" onclick={toggleTheme}>Тема</button>
+					<button class="btn btn-sm rounded-2" onclick={toggleTheme}>Тема</button>
 				</div>
 				<button
-					class="btn btn-sm bg-2 rounded-3"
+					class="btn btn-sm rounded-3"
 					type="button"
 					data-bs-toggle="menu"
 					aria-expanded="false"
