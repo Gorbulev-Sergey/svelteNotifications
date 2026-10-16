@@ -1,6 +1,7 @@
 <script lang="ts">
-	import { addToast } from '#lib/scripts/storeToasts.svelte.ts';
-	import Column from '#lib/components/Column.svelte';
+	import Column from '../lib/components/Column.svelte';
+	import { addToast } from '../lib/scripts/storeToasts.svelte';
+
 	let photos = $state([
 		'https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/fdxdTRYsVwvVxCgEbUDtc-miqcvwzEVl/qhFrPxvsDQzBbf57BZ5N9xraeRaH9Urm/eH-MqZgC1fy4sZduosL_bQ.jpg',
 		'https://i.wfolio.ru/x/zfNWg0RActCaYvCdP8NS6h3QcKqIOO7I/oVCmpsR2A0_zCBuWQbm7dJYwNQ6ysoqE/VwtA-FfEADI0vERLvfmj3mD936Svx7Ju/wV_6PA87X4MuICEuqLv6o9ZvhMgEDCHX/xQnx8-oSK8xQblXMxDhmQQ.jpg',

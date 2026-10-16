@@ -2,8 +2,8 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
-	import { addToast } from '#lib/scripts/storeToasts.svelte.ts';
-	import Toaster from '#lib/components/Toaster.svelte';
+	import Toaster from '../lib/components/Toaster.svelte';
+	import { addToast } from '../lib/scripts/storeToasts.svelte';
 
 	let { children } = $props();
 	function toggleTheme() {

@@ -1,8 +1,31 @@
 {
-	"name": "sveltenotifications",
-	"private": true,
-	"version": "1.0.0",
+	"name": "@gorbulevsv/toasts",
+	"description": "Пакет для работы с toasts",
+	"version": "0.0.3",
+	"publishConfig": {
+		"access": "public"
+	},
+	"keywords": [
+		"gorbulevsv",
+		"toasts"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
 	"type": "module",
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -16,6 +39,7 @@
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^8.0.0",
 		"@sveltejs/kit": "^3.0.0",
+		"@sveltejs/package": "^3.0.1",
 		"@sveltejs/vite-plugin-svelte": "^7.2.0",
 		"@types/bootstrap": "^5.2.11",
 		"prettier": "^3.8.3",
